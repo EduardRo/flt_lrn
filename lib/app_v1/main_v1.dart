@@ -41,6 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Stack(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 31),
+            padding: const EdgeInsets.only(left: 31),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: FloatingActionButton(
@@ -76,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
-              onPressed: _incrementCounter,
+              onPressed: _decrementCounter,
               child: const Icon(Icons.add_photo_alternate),
             ),
           ),
