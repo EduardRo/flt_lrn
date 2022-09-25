@@ -28,6 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +37,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text('this is a column'),
-            Text('this is another text')
+          children: [
+            const Text('this is a column'),
+            Text(
+              '$_count',
+              style: Theme.of(context).textTheme.headline4,
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            // This call to setState tells the Flutter framework that something has
+            // changed in this State, which causes it to rerun the build method below
+            // so that the display can reflect the updated values. If we changed
+            // _counter without calling setState(), then the build method would not be
+            // called again, and so nothing would appear to happen.
+            _count++;
+          });
+        },
         child: const Icon(Icons.access_alarm_outlined),
       ),
     );
