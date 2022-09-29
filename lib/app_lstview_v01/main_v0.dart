@@ -29,8 +29,11 @@ class MyApp extends StatelessWidget {
             title: Text(items.first),
           ),
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(items[index]),
+            return Align(
+              alignment: Alignment.topLeft,
+              child: ListTile(
+                title: Text(items[index]),
+              ),
             );
           },
         ),
