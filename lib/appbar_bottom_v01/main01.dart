@@ -24,6 +24,8 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  final int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +34,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: Text(
           'this is center',
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wifi_1_bar),
+            label: 'this is may label 1',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'this is may label 1',
+          )
+        ],
+        currentIndex: _selectedIndex,
       ),
     );
   }
