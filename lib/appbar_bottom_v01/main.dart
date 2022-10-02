@@ -42,7 +42,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     ),
     Text(
       'Index 3: Settings',
-      style: optionStyle,
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w100),
     ),
     Text(
       'Index 4: Settings',
