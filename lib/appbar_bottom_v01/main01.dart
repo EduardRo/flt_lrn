@@ -24,16 +24,20 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final int _selectedIndex = 0;
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('AppBar Title')),
-      body: const Center(
-        child: Text(
-          'this is center',
-        ),
+      body: Center(
+        child: Text('lkljk $_selectedIndex'),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -47,6 +51,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           )
         ],
         currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
