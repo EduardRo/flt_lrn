@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'this is my title',
+      title: 'this is the title',
       home: MyStatefulWidget(),
     );
   }
@@ -34,10 +34,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(title: const Text('AppBar Title')),
       body: Center(
-        child: Text('lkljk $_selectedIndex'),
+        child: Text('lkljk $_selectedIndex $screenWidth'),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
