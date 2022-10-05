@@ -34,11 +34,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(title: const Text('AppBar Title')),
       body: Center(
-        child: Text('lkljk $_selectedIndex $screenWidth'),
+        child: Container(
+          alignment: Alignment.topCenter,
+          margin: const EdgeInsets.only(top: 20),
+          child: ActionChip(
+            avatar: CircleAvatar(
+              backgroundColor: Colors.grey.shade800,
+              child: const Icon(
+                Icons.facebook,
+                color: Colors.red,
+              ),
+            ),
+            label: Text("Codesinsider $_selectedIndex"),
+            labelStyle: const TextStyle(color: Colors.deepOrange),
+            onPressed: () {},
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
