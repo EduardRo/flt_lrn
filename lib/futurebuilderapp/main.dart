@@ -25,8 +25,8 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final Future<String> _calculation = Future<String>.delayed(
-    const Duration(seconds: 2),
-    () => 'Data Loaded',
+    const Duration(seconds: 10),
+    () => 'Data Loaded in this example',
   );
 
   @override
@@ -47,7 +47,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text('Result: ${snapshot.data}'),
+                child: Text(
+                  'Result: ${snapshot.data}',
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 141, 46, 46)),
+                ),
+              ),
+              const Text(
+                'this is another text',
+                style: TextStyle(color: Colors.white),
               ),
             ];
           } else if (snapshot.hasError) {
