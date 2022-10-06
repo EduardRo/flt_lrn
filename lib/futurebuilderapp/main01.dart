@@ -36,12 +36,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text('this is the title'),
-        FutureBuilder<String>(
+        FutureBuilder(
           future: _calculation, // a previously-obtained Future<String> or null
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-            List<Widget> children;
+            List<Widget> childrenot;
             if (snapshot.hasData) {
-              children = <Widget>[
+              childrenot = <Widget>[
                 const Icon(
                   Icons.check_circle_outline,
                   color: Colors.green,
@@ -55,13 +55,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         color: Color.fromARGB(255, 141, 46, 46)),
                   ),
                 ),
-                const Text(
-                  'this is another text',
-                  style: TextStyle(color: Colors.white),
+                Text(
+                  'this ${snapshot.data}',
+                  style: const TextStyle(color: Colors.white),
                 ),
               ];
             } else if (snapshot.hasError) {
-              children = <Widget>[
+              childrenot = <Widget>[
                 const Icon(
                   Icons.error_outline,
                   color: Colors.red,
@@ -73,7 +73,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ];
             } else {
-              children = const <Widget>[
+              childrenot = const <Widget>[
                 SizedBox(
                   width: 60,
                   height: 60,
@@ -87,7 +87,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             }
             return Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: children,
+              children: childrenot,
             );
           },
         ),
