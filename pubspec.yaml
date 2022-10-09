@@ -39,6 +39,7 @@ dependencies:
   english_words: ^4.0.0
   clay_containers: ^0.3.2
   flutter_bloc: ^8.1.1
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
