@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'intro_screens/intro_page_2.dart';
 import 'intro_screens/intro_page_3.dart';
+import 'intro_screens/intro_page_4.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
