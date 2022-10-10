@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CoffeeTile extends StatelessWidget {
-  const CoffeeTile({super.key});
-
+  final String coffeeImagePath;
+  final String coffeeName;
+  final String coffeePrice;
+  final String coffeeDescription;
+  // const CoffeeTile({super.key, required this.coffeeImagePath,});
+  const CoffeeTile({
+    Key? key,
+    required this.coffeeImagePath,
+    required this.coffeeName,
+    required this.coffeePrice,
+    required this.coffeeDescription,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,25 +30,25 @@ class CoffeeTile extends StatelessWidget {
           children: [
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset('assets/coffee/latte.jpg')),
+                child: Image.asset(coffeeImagePath)),
             Padding(
               padding: const EdgeInsets.only(top: 4.0, left: 10, right: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Latte',
+                    coffeeName,
                     style: GoogleFonts.bebasNeue(fontSize: 30),
                   ),
                   Text(
-                    'With Almond Milk!',
+                    coffeeDescription,
                     style: GoogleFonts.caveat(
-                        fontSize: 25, color: Colors.grey[400]),
+                        fontSize: 20, color: Colors.grey[400]),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('\$12.00'),
+                      Text('\$  $coffeePrice'),
                       Container(
                         decoration: BoxDecoration(
                             color: Colors.orange,
