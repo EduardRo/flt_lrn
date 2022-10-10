@@ -1,4 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flt_lrn/coffeeApp/util/cofee_tile.dart';
+import 'package:flt_lrn/coffeeApp/util/cofee_type.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
         elevation: 0,
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> {
 
         children: [
           Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.all(5.0),
             child: Text(
               'Find the best coffee for you',
               style: GoogleFonts.bebasNeue(fontSize: 30),
@@ -66,52 +68,36 @@ class _HomePageState extends State<HomePage> {
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Find your fucking coffee Biatch!',
-                focusedBorder: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      (BorderSide(color: Color.fromARGB(255, 129, 121, 121))),
-                ),
-              ),
-            ),
+                decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              hintText: 'Find your fucking coffee Biatch!',
+              focusedBorder: OutlineInputBorder(),
+            )),
           ),
+
           const SizedBox(
-            height: 25,
+            height: 5,
+          ),
+
+          // horizontal listview of coffee
+          Container(
+            height: 50,
+            color: const Color.fromARGB(255, 35, 33, 33),
+            child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [CoffeeType(), CoffeeType()]),
           ),
           // Horizontal listview of coffeTiles
           Expanded(
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 200,
-                    height: 100,
-                    color: Colors.grey,
-                    child: Text(widget.title),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 200,
-                    height: 100,
-                    color: Colors.grey,
-                    child: Text(widget.title),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 200,
-                    height: 100,
-                    color: Colors.grey,
-                    child: Text(widget.title),
-                  ),
-                )
+              children: const [
+                CoffeeTile(),
+                CoffeeTile(),
+                CoffeeTile(),
+                CoffeeTile(),
+                CoffeeTile(),
+                CoffeeTile(),
               ],
             ),
           )
