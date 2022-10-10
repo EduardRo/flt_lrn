@@ -15,6 +15,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // list of coffee types
+  final List coffeeType = [
+    ['cappucino', true],
+    ['latte', false],
+    ['black coffee', false],
+    ['white coffee', false]
+  ];
+
+  // user tapped on - used for the color of the coffee type
+  void coffeeTypeSelected(int index) {
+    setState(() {
+      for (int i = 0; i < coffeeType.length; i++) {
+        if (i == index) {
+          coffeeType[i][1] = true;
+        } else {
+          coffeeType[i][1] = false;
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,9 +104,19 @@ class _HomePageState extends State<HomePage> {
           Container(
             height: 50,
             color: const Color.fromARGB(255, 35, 33, 33),
-            child: ListView(
+            child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: const [CoffeeType(), CoffeeType()]),
+                itemCount: coffeeType.length,
+                itemBuilder: (context, index) {
+                  return CoffeeType(
+                      coffeeType: coffeeType[index][0],
+                      isSelected: coffeeType[index][1],
+                      onTap: () {
+                        coffeeTypeSelected(index);
+                      }
+                      //print('taptap');
+                      );
+                }),
           ),
           // Horizontal listview of coffeTiles
           Expanded(
